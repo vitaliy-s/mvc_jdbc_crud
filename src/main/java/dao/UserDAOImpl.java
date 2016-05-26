@@ -72,6 +72,24 @@ public class UserDAOImpl implements UserDAO {
         }
     }
 
+    @Override
+    public List<User> serchUserName(String str) {
+        String sql = "SELECT * FROM test WHERE test.uname LIKE ?";
+
+        List<User> userList = jdbcTemplate.query(sql, new Object[]{str + "%"},new RowMapper<User>(){
+
+            public User mapRow(ResultSet resultSet, int i) throws SQLException {
+                User user = new User();
+                user.setId(resultSet.getInt("id"));
+                user.setName(resultSet.getString("uname"));
+                user.setPassword(resultSet.getString("password"));
+                user.setMail(resultSet.getString("mail"));
+                return user;
+            }
+        });
+        return userList;
+    }
+
     //rab variant_1
    /*
    private JdbcTemplate jdbcTemplate;

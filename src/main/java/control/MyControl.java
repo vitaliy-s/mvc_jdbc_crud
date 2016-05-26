@@ -27,6 +27,11 @@ public class MyControl {
         return "index";
     }
 
+    @RequestMapping(value = "rest", method = RequestMethod.GET)
+    public String rest(){
+        return "restusers";
+    }
+
     @RequestMapping(value = "alluser", method = RequestMethod.GET)
     public ModelAndView allUser(ModelAndView modelAndView) {
         List<User> userList = userDAO.allUser();

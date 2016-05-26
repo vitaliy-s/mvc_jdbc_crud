@@ -11,6 +11,8 @@
 
     <context:property-placeholder location="classpath:mysql_db_connect.properties"/>
 
+
+
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${mysql.drvClass}"/>
         <property name="url" value="${mysql.url}"/>
@@ -28,6 +30,10 @@
      </bean>-->
 
     <bean id="dao" class="dao.UserDAOImpl">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+    <bean id="daoImeg" class="dao.ImegDaoImpl">
         <constructor-arg ref="dataSource"/>
     </bean>
 

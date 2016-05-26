@@ -15,4 +15,6 @@ public interface UserDAO {
     User get(int userId);
     void saveOrUpdate(User user);
 
+    List<User> serchUserName(String str);
+
 }

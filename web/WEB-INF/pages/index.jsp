@@ -12,5 +12,8 @@
   </head>
   <body>
   <a href="/alluser"> go go</a>
+  <br>
+  <br>
+  <a href="/rest"> Rest</a>
   </body>
 </html>
